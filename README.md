@@ -28,15 +28,21 @@ the functional modeling surface.
 For a linked development install:
 
 ```sh
-raco pkg install --auto --link /path/to/manifold
-raco test -p manifold
+raco pkg install --user --auto --name racket-manifold \
+  --link /path/to/racket-manifold
+raco test -p racket-manifold
 ```
 
 Install the released source directly from GitHub with:
 
 ```sh
-raco pkg install https://github.com/N5HXR/racket-manifold.git
+raco pkg install --user --auto https://github.com/N5HXR/racket-manifold.git
 ```
+
+Do not use `sudo` for either command. A user-scoped installation is visible to
+the same ordinary user that runs `racket`, and avoids mixing root's package
+state with the user's Racket environment. To update an existing GitHub
+installation, run `raco pkg update --user racket-manifold`.
 
 After installation, open the searchable Scribble manual with:
 
