@@ -2,10 +2,16 @@
 
 (require rackunit
          racket/math
-         (prefix-in ll: manifold/low-level))
+         (prefix-in ll: manifold/low-level)
+         manifold/private/library)
 
 (define (close-all . values)
   (for ([value (in-list values)]) (ll:native-handle-close! value)))
+
+(unless (manifold-library-available?)
+  (eprintf "Skipping native Manifold integration tests: libmanifoldc is unavailable\n"))
+
+(when (manifold-library-available?)
 
 (test-case "managed polygons, cross sections, triangulation, and extrusion"
   (define outline (ll:simple-polygon '((0 0) (2 0) (2 1) (0 1))))
@@ -133,4 +139,4 @@
     (lambda () (check-= (ll:relative-precision) 1e-10 1e-20))
     (lambda () (ll:set-relative-precision! old-precision)
                (ll:reset-circular-defaults!)))
-  (close-all cube with-property with-curvature with-normals))
+  (close-all cube with-property with-curvature with-normals)))

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1
+
+- Defer loading `libmanifoldc` and resolving C symbols until the first native
+  operation, allowing package installation and documentation builds without
+  the external library.
+- Preserve exact unsafe-procedure arities across lazy binding resolution.
+- Skip native integration tests cleanly when Manifold is unavailable and add
+  subprocess coverage for missing-library imports and first-use errors.
+- Clarify file, REPL, and user-scoped installation instructions.
+
 ## 0.1.0
 
 Initial public alpha release.

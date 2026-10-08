@@ -11,6 +11,11 @@ Manifold is an external system dependency and must be installed separately
 with its C bindings (`libmanifoldc`). Manifold is licensed under Apache-2.0;
 this Racket wrapper is licensed under MIT.
 
+The Racket modules and documentation can be loaded without the native library.
+`libmanifoldc` is located lazily when the first native operation is invoked;
+if it is unavailable, that operation raises an error describing the attempted
+library names and the `RACKET_MANIFOLDC_LIB` override.
+
 The complete 292-symbol official C API is available with exact native names
 from `manifold/unsafe`; those declarations are generated from `manifoldc.h`.
 Every call is also covered by `manifold/low-level`: owned native values have

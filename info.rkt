@@ -4,7 +4,7 @@
 (define deps '("base" "scribble-lib"))
 (define build-deps '("racket-doc" "rackunit-lib"))
 (define pkg-desc "Racket bindings and functional modeling API for Manifold")
-(define version "0.1.0")
+(define version "0.1.1")
 (define pkg-authors '("Josh Stone"))
 (define license 'MIT)
 (define test-omit-paths '("examples" "scripts"))

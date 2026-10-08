@@ -21,6 +21,12 @@ Manifold @tt{v3.5.1-82-g7b35cb6f}; install @tt{libmanifoldc} where the dynamic
 linker can find it, or set @envvar{RACKET_MANIFOLDC_LIB} to the shared-library
 path.
 
+Loading any Racket module in this package does not immediately load the native
+library. The first native operation locates @tt{libmanifoldc} and resolves its
+required C binding. This permits package installation and documentation builds
+on systems where Manifold is not installed; actual modeling operations still
+report a direct, actionable error until the native dependency is available.
+
 @local-table-of-contents[]
 
 @section[#:tag "layers"]{Choosing an Interface}

@@ -100,7 +100,7 @@ def generate(header: Path) -> str:
         signature = " ".join(parameters + ["->", result])
         lines.extend([
             f"(define {node.name}",
-            f"  (get-ffi-obj \"{node.name}\" manifold-lib (_fun {signature})))",
+            f"  (make-lazy-manifold-ffi-obj \"{node.name}\" (_fun {signature}) {len(parameters)}))",
         ])
     lines.append("")
     return "\n".join(lines)
@@ -116,4 +116,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

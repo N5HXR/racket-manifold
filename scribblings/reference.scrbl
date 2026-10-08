@@ -188,5 +188,7 @@ Evaluates @racket[body] with @racket[current-circular-segments] set to
             ([operation symbol?] [status any/c]) #:transparent]
 @defproc[(manifold-version) (list/c exact-integer? exact-integer? exact-integer?)]
 
-@tt{manifold-library-path} contains the candidate name or path used to load the
-native library.
+@tt{manifold-library-path} is @racket[#f] before the first native operation and
+then contains the candidate name or path used to load the native library.
+Requiring the module is therefore safe on documentation and package-build
+hosts where @tt{libmanifoldc} is absent.

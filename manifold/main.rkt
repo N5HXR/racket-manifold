@@ -9,7 +9,7 @@
 
 (provide
  manifold-version
- manifold-library-path
+ (rename-out [ll:manifold-library-path manifold-library-path])
  (struct-out point3)
  (struct-out triangle)
  (struct-out mesh)
@@ -59,8 +59,6 @@
  solid->stl-bytes)
 
 (define manifold-version ll:manifold-version)
-(define manifold-library-path ll:manifold-library-path)
-
 (struct point3 (x y z) #:transparent)
 (struct triangle (a b c) #:transparent)
 (struct mesh (vertices triangles) #:transparent)

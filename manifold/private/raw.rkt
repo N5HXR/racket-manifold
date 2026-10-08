@@ -6,7 +6,7 @@
 (provide (all-defined-out))
 
 (define-syntax-rule (define-raw racket-name c-name type)
-  (define racket-name (get-ffi-obj c-name manifold-lib type)))
+  (define racket-name (make-lazy-manifold-ffi-obj c-name type)))
 
 ;; Opaque native object pointers.
 (define _manifold _pointer)

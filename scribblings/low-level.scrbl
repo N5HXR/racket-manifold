@@ -38,8 +38,10 @@ borrowed pointers.
 
 @defproc[(manifold-version) (list/c exact-integer? exact-integer? exact-integer?)]
 
-@tt{manifold-library-path} reports the candidate name or path used to load the
-native library.
+@tt{manifold-library-path} is @racket[#f] until the first native operation,
+then reports the candidate name or path used to load the native library. C
+bindings are resolved lazily, so requiring this module does not itself require
+@tt{libmanifoldc} to be installed.
 
 @section{Callbacks and Global Settings}
 

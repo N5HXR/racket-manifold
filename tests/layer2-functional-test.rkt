@@ -4,10 +4,16 @@
          racket/math
          racket/port
          manifold
-         (prefix-in u: manifold/units))
+         (prefix-in u: manifold/units)
+         manifold/private/library)
 
 (define (close-cross-sections . values)
   (for-each cross-section-close! values))
+
+(unless (manifold-library-available?)
+  (eprintf "Skipping native Manifold integration tests: libmanifoldc is unavailable\n"))
+
+(when (manifold-library-available?)
 
 (test-case "Layer 2 planar CSG, bounds, extrusion, and revolution"
   (define plate (square 20 10 #:center? #t))
@@ -96,4 +102,4 @@
   (check-= (u:with-units u:millimetre (u:solid-volume imported))
            (u:with-units u:millimetre (u:solid-volume implicit)) 1e-5)
   (u:solid-close! implicit)
-  (u:solid-close! imported))
+  (u:solid-close! imported)))

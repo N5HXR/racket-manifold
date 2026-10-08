@@ -15,8 +15,9 @@ Manifold wrapper described in the accompanying specification.
 - A functional convenience layer with dynamically scoped units, capsules, CSG,
   transformations, planar CSG, extrusion and revolution, SDFs and warps,
   mesh round-tripping, OBJ, and binary or ASCII STL output.
-- Twenty-six Racket tests covering symbol resolution, ownership, geometry, units,
-  callbacks, every managed API family, capsules, and STL serialization.
+- Twenty-eight Racket tests covering lazy native loading, symbol resolution,
+  ownership, geometry, units, callbacks, every managed API family, capsules,
+  and STL serialization.
 - Eight executable examples progressing from a unit-aware cube through CSG,
   planar extrusion, SDF callbacks, mesh round-tripping, and a printable tugboat.
 - An installed, searchable Scribble manual covering the functional API, units,
@@ -25,6 +26,8 @@ Manifold wrapper described in the accompanying specification.
 ## Independently exercised
 
 - Racket 8.2 package installation and test execution.
+- Package installation, module loading, Scribble generation, and graceful test
+  skipping with `libmanifoldc` deliberately unavailable.
 - Loading all generated native symbols from the locally installed Manifold C
   library.
 - Importing a generated binary STL through the installed OpenEMS/CSXCAD STL

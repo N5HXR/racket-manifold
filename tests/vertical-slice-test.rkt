@@ -5,10 +5,16 @@
          racket/port
          manifold
          (prefix-in u: manifold/units)
-         manifold/coverage)
+         manifold/coverage
+         manifold/private/library)
 
 (define tolerance 1e-9)
 (define (close? a b [epsilon tolerance]) (< (abs (- a b)) epsilon))
+
+(unless (manifold-library-available?)
+  (eprintf "Skipping native Manifold integration tests: libmanifoldc is unavailable\n"))
+
+(when (manifold-library-available?)
 
 (test-case "target library and coverage manifest"
   (check-equal? (manifold-version) '(3 5 1))
@@ -133,4 +139,4 @@
   (check-equal? (u:solid-num-triangles scoped)
                 (u:solid-num-triangles explicit))
   (u:solid-close! scoped)
-  (u:solid-close! explicit))
+  (u:solid-close! explicit)))

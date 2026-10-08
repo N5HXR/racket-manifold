@@ -24,10 +24,10 @@
  solid-surface-area solid-volume solid-bounds
  solid-min-gap solid-winding-number
  write-stl solid->stl-bytes
- manifold-version manifold-library-path)
+ manifold-version
+ (rename-out [core:manifold-library-path manifold-library-path]))
 
 (define manifold-version core:manifold-version)
-(define manifold-library-path core:manifold-library-path)
 (define current-circular-segments core:current-circular-segments)
 
 (define-syntax-rule (with-circular-segments count body ...)
