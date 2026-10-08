@@ -1,0 +1,7 @@
+compiled/
+**/compiled/
+*.stl
+*.obj
+*~
+\#*\#
+example-output/
