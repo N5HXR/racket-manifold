@@ -3,6 +3,8 @@
 Racket bindings for the [Manifold](https://github.com/elalish/manifold)
 solid-modeling library.
 
+![Rendered tugboat example](docs/shippy.png)
+
 This package currently targets Manifold checkout
 `7b35cb6f3ebc3900e0858e08c1caa27fe716345a` (`v3.5.1-82-g7b35cb6f`).
 Manifold is an external system dependency and must be installed separately
