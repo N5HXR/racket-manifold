@@ -44,13 +44,42 @@ After installation, open the searchable Scribble manual with:
 raco docs manifold
 ```
 
+## Quick start from a file
+
+Save the following as `capsule.rkt` (the `#lang` line must be the first line
+of a source file):
+
 ```racket
 #lang racket
 (require manifold)
 
 (define bar (capsule '(0 0 0) '(0 0 10) 1 #:segments 32))
 (write-stl bar "bar.stl")
+(solid-close! bar)
 ```
+
+Then run the file from your shell:
+
+```sh
+racket capsule.rkt
+```
+
+This writes `bar.stl` in the current directory.
+
+## Quick start from the REPL
+
+If you start the interactive REPL by running `racket` with no filename, omit
+the `#lang` line. Also, module paths are not quoted: use
+`(require manifold)`, not `(require 'manifold)`.
+
+```racket
+> (require manifold)
+> (define bar (capsule '(0 0 0) '(0 0 10) 1 #:segments 32))
+> (write-stl bar "bar.stl")
+> (solid-close! bar)
+```
+
+## Units
 
 For physical modeling, use `manifold/units`. Bare geometric numbers are
 interpreted in the active unit context and normalized to metres internally:
